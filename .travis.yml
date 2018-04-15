@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+notifications:
+  email: false
+  
+before_install:
+- 'chmod 777 build.sh'
+
+script:
+- "docker run -i -v \"${PWD}:/MyProgram\" openshift/base-centos7:latest /bin/bash -c \"/MyProgram/build.sh\""
